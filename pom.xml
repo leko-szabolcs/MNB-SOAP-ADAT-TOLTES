@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -46,7 +46,7 @@
                     </wsdlUrls>
                     <packageName>soapclient</packageName>
                     <sourceDestDir>
-                        C:\java-soap\MNB-SOAP-ADAT-TOLTES\src\main\java
+                        C:\ssss\src\main\java
                     </sourceDestDir>
                 </configuration>
             </plugin>
