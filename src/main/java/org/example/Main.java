@@ -1,12 +1,11 @@
 package org.example;
 import soapclient.MNBArfolyamServiceSoap;
-import soapclient.MNBArfolyamServiceSoapGetExchangeRatesStringFaultFaultMessage;
 import soapclient.MNBArfolyamServiceSoapImpl;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws MNBArfolyamServiceSoapGetExchangeRatesStringFaultFaultMessage {
+    public static void main(String[] args)  {
         MNBArfolyamServiceSoapImpl impl = new MNBArfolyamServiceSoapImpl();
         MNBArfolyamServiceSoap service = impl.getCustomBindingMNBArfolyamServiceSoap();
 
@@ -45,14 +44,13 @@ public class Main {
             }
         }
 
-        // Validate end date input
         String vege;
         while (true) {
             System.out.println();
             System.out.print("Add meg, hogy milyen időpontig szeretnéd megnézni a deviza árfolyamát (" + valuta + "): ");
             vege = scanner.nextLine().trim();
 
-            if (vege.matches("^\\d{4}-\\d{2}-\\d{2}$")) { // Ensures YYYY-MM-DD format
+            if (vege.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
                 break;
             } else {
                 System.out.println();
