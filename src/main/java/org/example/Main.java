@@ -2,6 +2,9 @@ package org.example;
 import soapclient.MNBArfolyamServiceSoap;
 import soapclient.MNBArfolyamServiceSoapImpl;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -61,9 +64,22 @@ public class Main {
         System.out.println();
         System.out.println("A kért eredmény:");
         try {
-            System.out.println(service.getExchangeRates(kezdes, vege, valuta));
+            String result = service.getExchangeRates(kezdes, vege, valuta);
+            System.out.println(result);
+
+            // Save the result to a text file
+            saveResultToFile(result, "exchange_rates.txt");
+            System.out.println("Az eredmény sikeresen elmentve a 'exchange_rates.txt' fájlba.");
         } catch (Exception e) {
             System.err.println("Hiba történt az árfolyamok lekérése közben: " + e.getMessage());
+        }
+    }
+
+    private static void saveResultToFile(String data, String fileName) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(data);
+        } catch (IOException e) {
+            System.err.println("Hiba történt a fájl mentése közben: " + e.getMessage());
         }
     }
 }
